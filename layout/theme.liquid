@@ -4,8 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NTVBox</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0d0d0d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: sans-serif;
+    }
+    .container {
+      text-align: center;
+    }
+    .logo {
+      width: 160px;
+      margin-bottom: 24px;
+    }
+    .text {
+      color: #666;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+    }
+    .dot {
+      display: inline-block;
+      animation: blink 1.4s infinite;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0; }
+      40% { opacity: 1; }
+    }
+  </style>
   <script>
-    // Redireciona para o site principal exceto em páginas de conta e checkout
     (function() {
       var path = window.location.pathname;
       var isAccount = path.indexOf('/account') === 0;
@@ -19,6 +51,15 @@
   </script>
 </head>
 <body>
+  <div class="container">
+    <img class="logo" src="{{ 'logo.png' | asset_url }}" alt="NTVBox" />
+    <p class="text">
+      Redirecionando
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+    </p>
+  </div>
   {{ content_for_layout }}
 </body>
 </html>
