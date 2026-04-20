@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTVBox</title>
+  <script>
+    // Redireciona para o site principal exceto em páginas de conta e checkout
+    (function() {
+      var path = window.location.pathname;
+      var isAccount = path.indexOf('/account') === 0;
+      var isCheckout = path.indexOf('/checkouts') === 0 || path.indexOf('/cart') === 0;
+      var isPassword = path.indexOf('/password') === 0;
+
+      if (!isAccount && !isCheckout && !isPassword) {
+        window.location.replace('https://ntv-box.com');
+      }
+    })();
+  </script>
+</head>
+<body>
+  {{ content_for_layout }}
+</body>
+</html>
