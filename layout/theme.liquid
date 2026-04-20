@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NTVBox</title>
+  {{ content_for_header }}
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -14,22 +15,10 @@
       min-height: 100vh;
       font-family: sans-serif;
     }
-    .container {
-      text-align: center;
-    }
-    .logo {
-      width: 160px;
-      margin-bottom: 24px;
-    }
-    .text {
-      color: #666;
-      font-size: 14px;
-      letter-spacing: 0.05em;
-    }
-    .dot {
-      display: inline-block;
-      animation: blink 1.4s infinite;
-    }
+    .container { text-align: center; }
+    .logo { width: 160px; margin-bottom: 24px; }
+    .text { color: #666; font-size: 14px; letter-spacing: 0.05em; }
+    .dot { display: inline-block; animation: blink 1.4s infinite; }
     .dot:nth-child(2) { animation-delay: 0.2s; }
     .dot:nth-child(3) { animation-delay: 0.4s; }
     @keyframes blink {
@@ -43,7 +32,6 @@
       var isAccount = path.indexOf('/account') === 0;
       var isCheckout = path.indexOf('/checkouts') === 0 || path.indexOf('/cart') === 0;
       var isPassword = path.indexOf('/password') === 0;
-
       if (!isAccount && !isCheckout && !isPassword) {
         window.location.replace('https://ntv-box.com');
       }
